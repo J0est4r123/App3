@@ -32,4 +32,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/WinScreen.unity
     guid: fb7e7d0531acfd148b496640d7cfc0e2
+  - enabled: 1
+    path: Assets/Levels/ReplayLevel1.unity
+    guid: 481e6acc0e1d50c49aa6126ab5fdb6ba
+  - enabled: 1
+    path: Assets/Levels/ReplayLevel2.unity
+    guid: 538adf46be79a124090064cadc2f9838
+  - enabled: 1
+    path: Assets/Levels/ReplayLevel3.unity
+    guid: df28c3c8884c0674e834f5545e8784b1
+  - enabled: 1
+    path: Assets/Levels/ReplayLevel4.unity
+    guid: 4aaf631ec92d9334d9a29cf89f157960
+  - enabled: 1
+    path: Assets/Levels/ReplayLevel5.unity
+    guid: a55ec7dc0fcee254e849a147cb3a001c
+  - enabled: 1
+    path: Assets/Levels/CharacterShop.unity
+    guid: 4fb1a9f8c4fb12e48993666f669507f6
   m_configObjects: {}

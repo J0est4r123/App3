@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class camController : MonoBehaviour
 {
    [SerializeField] private float speed;
+   [SerializeField] private GameObject speech;
    private float xPos;
    private float yPos;
 
@@ -16,5 +17,6 @@ public class camController : MonoBehaviour
    public void moveToNewRoom(Transform _newRoom){
     xPos = _newRoom.position.x;
     yPos = _newRoom.position.y;
+    speech.SetActive(false);
    }
 }

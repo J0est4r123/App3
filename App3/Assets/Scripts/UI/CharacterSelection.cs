@@ -11,6 +11,7 @@ public class CharacterSelection : MonoBehaviour
     [SerializeField] private Button selectButton; // Button for selecting characters
     [SerializeField] private int[] characterPrices; // Prices for each character
     [SerializeField] private Image[] buttons; // Button visuals for locked/unlocked
+    [SerializeField] private Image achievement;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class CharacterSelection : MonoBehaviour
         {
             if (StaticData.IsCharacterUnlocked(i))
             {
-                characterSkins[i].color = GetUnlockedColor(i);
+                characterSkins[i].color = StaticData.GetUnlockedColor(i);
                 buttons[i].color = Color.white;
             }
             else
@@ -82,6 +83,13 @@ public class CharacterSelection : MonoBehaviour
         {
             Debug.Log("Character is not unlocked and cannot be selected!");
         }
+        UpdateUI();
+    }
+    public void SetSelectedCharacter(int index)
+    {
+        StaticData.selectedCharacter = index;
+        PlayerPrefs.SetInt("selectedCharacter", StaticData.selectedCharacter);
+        UpdateUI();
     }
 
     private void UpdateUI()
@@ -89,22 +97,17 @@ public class CharacterSelection : MonoBehaviour
         int selected = StaticData.selectedCharacter;
 
         // Update purchase button state
-        purchaseButton.interactable = !StaticData.IsCharacterUnlocked(selected) && StaticData.money >= characterPrices[selected];
+        purchaseButton.interactable = !StaticData.IsCharacterUnlocked(selected);
 
         // Update select button state
         selectButton.interactable = StaticData.IsCharacterUnlocked(selected);
-    }
-
-    private Color GetUnlockedColor(int index)
-    {
-        switch (index)
-        {
-            case 0: return new Color32(255, 255, 255, 255);
-            case 1: return new Color32(226, 63, 63, 255);
-            case 2: return new Color32(67, 174, 224, 255);
-            case 3: return new Color32(222, 0, 245, 255);
-            case 4: return new Color32(120, 4, 255, 255);
-            default: return Color.white;
+        if (StaticData.unlockedCharacters[0] && StaticData.unlockedCharacters[1] && StaticData.unlockedCharacters[2] && StaticData.unlockedCharacters[3] && StaticData.unlockedCharacters[4]){
+            achievement.color = Color.white;
+        }
+        else{
+            achievement.color = Color.black;
         }
     }
+
+    
 }
